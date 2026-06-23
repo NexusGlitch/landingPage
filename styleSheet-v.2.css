@@ -133,7 +133,7 @@ NAVBAR
 } */
 
 nav{
-    position:relative;
+    position:relative; 
     display:flex;
     justify-content:center;
     align-items:center;
@@ -201,8 +201,12 @@ nav{
 /* NAV RIGHT */
 .nav-right{
     display:flex;
+    position:absolute;
     align-items:center;
     gap:14px;
+    right:0;
+    top:50%;
+    transform:translateY(-50%);
 }
 
 /* CART ICON */
@@ -236,13 +240,6 @@ nav{
     margin-left: 20px; /* This controls the distance from the Menu links *
 } */
 
-.nav-right{
-    position:absolute;
-    right:0;
-    top:50%;
-    transform:translateY(-50%);
-}
-
 .icon-btn {
     background: none;
     border: none;
@@ -260,7 +257,127 @@ nav{
     opacity: 0.8;
 }
 
+/* SEARCH BAR INTERACTION */
+
+.header-search{
+    display:flex;
+    justify-content:center;
+    max-height:0;
+    overflow:visible;
+    opacity:0;
+    transition:.5s ease;
+}
+
+.header-search.active{
+    max-height:150px;
+    opacity:1;
+}
+
+.search-box{
+    width:600px;
+    max-width:85%;
+    margin-top:15px;
+    margin-bottom:20px;
+    background:rgba(255,255,255,.15);
+    backdrop-filter:blur(18px);
+    border-radius:999px;
+    padding:18px 30px;
+    position:relative;
+}
+
+.search-input{
+    width:100%;
+    background:none;
+    border:none;
+    outline:none;
+    color:white;
+    font-size:16px;
+}
+
+.clear-search{
+    position:absolute;
+    right:25px;
+    top:50%;
+    transform:translateY(-50%);
+    background:none;
+    border:none;
+    color:white;
+    font-size:35px;
+    cursor:pointer;
+    display:none;
+}
+
+.search-results{
+    position:absolute;
+    top:80px;
+    left:50%;
+    width:88%;
+    max-height:450px;
+    overflow-y:auto;
+    transform:translateX(-50%);
+    display:none;
+    border-radius:25px;
+    backdrop-filter:blur(25px);
+    border:1px solid rgba(255,255,255,.08);
+    box-shadow:
+        0 20px 40px rgba(0,0,0,.4);
+    background:
+        linear-gradient(
+            135deg,
+            rgba(20, 13, 11, 0.932),
+            rgb(26, 22, 18)
+        );
+}
+
+.search-item{
+    color:white;
+    cursor:pointer;
+    transition:.3s;
+    padding:12px 18px;
+    display:flex;
+    align-items:center;
+    gap:15px;
+    text-decoration:none;
+}
+
+.search-item:hover{
+    background:#2f2f2f;
+}
+
+.search-item img{
+    width:60px;
+    height:60px;
+    object-fit:cover;
+    border-radius:12px;
+    flex-shrink:0;
+}
+
+.search-info{
+    font-size:16px;
+    line-height:1.4;
+    font-weight:500;
+}
+
+/* See all results */
+
+.see-all-results{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:18px;
+    border-top:1px solid rgba(255,255,255,.1);
+    background:#1c1c1c;
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+}
+
+.see-all-results:hover{
+    background:#2f2f2f;
+}
+
 /* Cart Badge Styling */
+
 .cart-count {
     position: absolute;
     top: -2px;
@@ -278,6 +395,7 @@ nav{
 }
 
 /* SLIDER NAVIGATION ARROWS */
+
 .slider-nav {
     position: absolute;
     top: 50%;
@@ -317,6 +435,7 @@ NAVBAR - THE FANCY STUFF & MEGA MENU
 ====================================== */
 
 /* Align text and arrow */
+
 #colLink,
 #accLink {
     display: inline-flex;
@@ -326,6 +445,7 @@ NAVBAR - THE FANCY STUFF & MEGA MENU
 }
 
 /* Default Arrow State (Pointing UP as requested) */
+
 .arrow-icon {
     transition: transform 0.3s ease; /* Smooth animation */
     transform: rotate(0deg); /* Default upward */
@@ -333,12 +453,14 @@ NAVBAR - THE FANCY STUFF & MEGA MENU
 
 /* ACTIVE STATE (Pointing DOWN when clicked) */
 /* We target the arrow inside the link when the menu has the 'active' class */
+
 #colMenu.active ~ #colLink .arrow-icon,
 .dropdown:has(#colMenu.active) .arrow-icon {
     transform: rotate(180deg);
 }
 
 /* ACTIVE STATE FOR BOTH ARROWS */
+
 #colMenu.active ~ #colLink .arrow-icon,
 .dropdown:has(#colMenu.active) .arrow-icon,
 #accMenu.active ~ #accLink .arrow-icon,
@@ -347,6 +469,7 @@ NAVBAR - THE FANCY STUFF & MEGA MENU
 }
 
 /* Ensure the arrow changes color when the header is scrolled */
+
 header.scrolled .arrow-icon {
     color: #bb983a;
 }
@@ -364,12 +487,14 @@ header.scrolled .arrow-icon {
     z-index: 1000;
     
     /* Hidden state */
+
     /* display: none; */
     opacity: 0;
     transform: translateY(-10px);
     transition: all 0.3s ease;
 
 /* Transition States */
+
     opacity: 0;
     visibility: hidden; /* Menu exists but is non-interactive */
     transform: translateY(-15px); /* Starts slightly higher */
@@ -378,6 +503,7 @@ header.scrolled .arrow-icon {
 }
 
 /* Active State */
+
 .mega-menu.active {
     opacity: 1;
     visibility: visible;
@@ -396,6 +522,7 @@ header.scrolled .arrow-icon {
 }
 
 /* Show state */
+
 .mega-menu.active {
     display: block;
     opacity: 1;
@@ -403,6 +530,7 @@ header.scrolled .arrow-icon {
 }
 
 /* THE GRID SYSTEM */
+
 .mega-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* 4 items per row */
@@ -410,6 +538,7 @@ header.scrolled .arrow-icon {
 }
 
 /* INDIVIDUAL ITEM */
+
 .mega-item {
     display: flex;
     flex-direction: column;
@@ -435,12 +564,14 @@ header.scrolled .arrow-icon {
 }
 
 /* Adjust top position when header shrinks on scroll */
+
 header.scrolled .mega-menu {
     /* top: 65px; */
     top: 110px;
 }
 
 /* Scroll text color */
+
 header.scrolled .logo,
 header.scrolled .nav-links a,
 header.scrolled .menu{
@@ -448,8 +579,13 @@ color: #dfa52a;
 /*Default color:#c6a96b; New color 1: #bb983a*/
 }
 /* Ensure icons turn white/black if you want them to change on scroll */
+
 header.scrolled .icon-btn {
     color: #dfa52a; /* Keeps them gold even on scroll */
+}
+
+#collections{
+    scroll-margin-top:140px;
 }
 /* header.scrolled .nav-logo img{
     height: 65px;
@@ -463,7 +599,7 @@ HERO
     height:100vh;
     /*background:url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=1600') center/cover;*/
     /* background:url('./soundsrelaxing89-ai-generated-8052806_1280.jpg') center/cover; */
-    background:url('folder/ChatGPT\ Image\ Jun\ 3\,\ 2026\,\ 09_06_15\ PM\ copy.png') center/cover;
+    background:url('./Pics_and_Wireframes/ChatGPT\ Image\ Jun\ 3\,\ 2026\,\ 09_06_15\ PM\ copy.png') center/cover;
     position:relative;
     display:flex;
     align-items:center;
@@ -488,28 +624,21 @@ HERO
     max-width:650px;*/
 }
 
-/* .hero h1{
-    font-family:'Playfair Display',serif;
-    font-size:74px;
-    line-height:1.1;
-    margin-bottom:20px;
-} */
-
 .hero h1{
     font-family:'Playfair Display',serif;
     font-size:77px;
     line-height:1.55;
+    /* font-size:74px;
+    line-height:1.1;
+    margin-bottom:20px; */
 }
-
-/* .hero p{
-    font-size:20px;
-    margin-bottom:30px;
-    max-width: 500px;
-    color:#f0f0f0;
-} */
 
 .hero p{
     margin-bottom: 45px;
+    font-size:20px;
+    max-width:455px;
+    color:#f0f0f0;
+    line-height:1.8;
 }
 
 .btn-group{
@@ -1404,7 +1533,7 @@ background:
     rgba(248,245,240,0.96) 0%,
     rgba(248,245,240,0.92) 40%,
     rgba(0,0,0,0.15) 100%),
-    url('folder/3fc736f3-b147-4a79-bf2c-0508c1447394.jpg');
+    url("./Pics_and_Wireframes/3fc736f3-b147-4a79-bf2c-0508c1447394.jpg");
     background-size: cover;
     background-position:center;
     display:flex;
@@ -1420,6 +1549,7 @@ background:
 }
 
 /* LEFT SIDE */
+
 .craft-text{
     max-width:800px;
     padding:80px 20px;
@@ -1451,6 +1581,7 @@ background:
 }
 
 /* ICON ROW */
+
 .craft-icons{
     display:grid;
     grid-template-columns:repeat(2,1fr);
@@ -1477,6 +1608,7 @@ background:
 }
 
 /* BUTTON */
+
 .craft-btn{
     display:inline-block;
     background:#c6a96b;
@@ -1495,6 +1627,7 @@ background:
 }
 
 /* Container for the image - helps with positioning */
+
 .craft-image-wrapper {
     flex: 1;
     display: flex;
@@ -1503,6 +1636,7 @@ background:
 }
 
 /* The actual image resize logic */
+
 .craft-image-wrapper img {
     /* CHANGE THESE VALUES TO RESIZE */
     width: 100%;
@@ -1515,6 +1649,7 @@ background:
 }
 
 /* MOBILE */
+
 @media(max-width:900px){
 
 .craftsmanship{
@@ -1536,6 +1671,7 @@ background:
 }
 
 /* Ensure background image disappears or changes on mobile for readability */
+
 @media (max-width: 900px) {
     .craftsmanship {
         background: #fff; /* Solid white background on mobile */
@@ -1553,6 +1689,7 @@ background:
 /* ========================
 REVIEWS SECTION
 ======================== */
+
 .reviews{
     padding: 90px 0 55px 0; /* Increases the bottom padding value (the 3rd number) to push the CTA section down */
     text-align:center;
@@ -1624,6 +1761,7 @@ REVIEWS SECTION
 }
 
 /* Mobile responsive centering */
+
 @media (max-width: 768px) {
     .reviews-grid {
         grid-template-columns: 1fr;
@@ -1633,6 +1771,7 @@ REVIEWS SECTION
 /* ========================
 CTA
 ======================== */
+
 .cta{
 padding:90px 0;
 background:#ffffff;
@@ -1649,6 +1788,7 @@ margin-bottom:20px;
 /* ========================
 FOOTER
 ======================== */
+
 /*footer{
 padding:45px 0;
 text-align:center;
@@ -1724,6 +1864,7 @@ footer {
 }
 
 /* Bottom Copyright Bar */
+
 .footer-bottom {
     border-top: 1px solid rgba(255,255,255,0.1);
     padding: 25px 0;
@@ -1744,6 +1885,7 @@ footer {
 }
 
 /* Social Icons Placeholder styling */
+
 .social-icons a {
     font-size: 20px;
     margin-right: 15px;
@@ -1801,6 +1943,7 @@ BACK TO TOP BUTTON
 /* ========================
 SCROLL REVEAL
 ======================== */
+
 .reveal{
 opacity:0;
 transform:translateY(40px);
@@ -1891,6 +2034,7 @@ font-size:52px;
 }
 
 /* Mobile Fix: Stack them back up on phones */
+
 @media (max-width: 900px) {
     .hero-wrapper {
         flex-direction: column;
@@ -1921,6 +2065,7 @@ font-size:17px;
 }
 
 /* Mobile: Stack them when the screen gets too small */
+
 @media (max-width: 768px) {
     .trust-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -1929,6 +2074,7 @@ font-size:17px;
 }
 
 /* Mobile responsive adjustment */
+
 @media(max-width: 768px) {
     .flex-bottom {
         flex-direction: column;
@@ -1958,4 +2104,51 @@ font-size:17px;
         font-size:32px;
     }
 }
+
+/* ========================
+NOT IN USE, BUT TOO PRECIOUS TO DELETE 
+======================== 
+
+.trust{
+padding:70px 0;
+background:white;
+}
+
+.trust-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+text-align:center;
+}
+
+.trust-box{
+padding:25px;
+border:1px solid #eee;
+border-radius:14px;
+}
+
+/* ========================
+   TRUST BADGES - UPDATED
+   ======================== *
+.trust {
+    padding: 70px 0;
+    background: white;
+}
+
+.trust-grid {
+    display: grid;
+    /* Clean grid layout *
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    text-align:center;
+}
+
+.trust-item {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers items horizontally within the cell *
+    gap: 15px; /* Adds clean spacing between icon, title, and text *
+}*/
+
 
