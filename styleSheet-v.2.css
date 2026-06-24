@@ -780,10 +780,11 @@ PRODUCTS TITLE SECTION
 ======================== */
 .title {
     display: flex;
-    justify-content: space-between; /* Pushes title left and button right */
-    align-items: flex-end;         /* Aligns button with the bottom of the text */
+    justify-content: center /* space-between; = /* Pushes title left and button right */
+    align-items: center /* flex-end; = /* Aligns button with the bottom of the text */
     margin-bottom: 55px;
-    text-align: left;              /* Ensures text itself is left-aligned */
+    text-align: center /* left; = /* Ensures text itself is left-aligned */
+    flex-direction: column;
 }
 
 .title-text {
@@ -1019,12 +1020,9 @@ CAMPAIGN DESIGN
 
 .sale-circle{
     position:absolute;
-
     width:420px;
     height:420px;
-
     border-radius:50%;
-
     background:
     linear-gradient(
         135deg,
@@ -1032,21 +1030,15 @@ CAMPAIGN DESIGN
         rgba(173,20,20,.75) 50%,
         rgba(125,0,0,.75) 100%
     );
-
     left:50%;
     top:50%;
-
     transform:translate(-50%,-50%);
-
     z-index:2;
-
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
-
     text-align:center;
-
     color:white;
 }
 
@@ -1070,41 +1062,29 @@ CAMPAIGN DESIGN
 .campaign-overlay{
     position:absolute;
     inset:0;
-
     z-index:2;
-
     display:flex;
     flex-direction:column;
-
     justify-content:center;
     align-items:center;
-
     text-align:center;
-
     padding:40px;
 }
 
 .campaign-overlay h3{
     color:white;
-
     font-family:'Playfair Display', serif;
-
     font-size:52px;
     line-height:1.05;
-
     margin-bottom:30px;
 }
 
 .campaign-btn{
     background:#4c4c4c;
     color:white;
-
     padding:18px 40px;
-
     border-radius:999px;
-
     font-weight:600;
-
     transition:.3s;
 }
 
