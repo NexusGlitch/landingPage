@@ -546,7 +546,7 @@ HERO
 
 .hero{
     height:100vh;
-    background:url('./Pics_and_Wireframes/ChatGPT\ Image\ Jun\ 26\,\ 2026\,\ 09_00_35\ PM\ copy.png') center/cover;
+    background:url('folder/ChatGPT\ Image\ Jun\ 26\,\ 2026\,\ 09_00_35\ PM\ copy.png') center/cover;
     position:relative;
     display:flex;
     align-items:center;
